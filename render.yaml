@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: brave-browser
+    runtime: docker
+    plan: starter        # change to "free" to try free tier (expect crashes)
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: CUSTOM_USER
+        value: admin
+      - key: PASSWORD
+        generateValue: true
+      - key: PUID
+        value: 1000
+      - key: PGID
+        value: 1000
+      - key: TZ
+        value: Etc/UTC
+      - key: BRAVE_CLI
+        value: --disable-dev-shm-usage
+    disk:
+      name: brave-config
+      mountPath: /config
+      sizeGB: 5
