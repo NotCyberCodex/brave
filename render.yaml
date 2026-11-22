@@ -8,7 +8,7 @@ services:
       - key: CUSTOM_USER
         value: admin
       - key: PASSWORD
-        generateValue: true
+        value: admin
       - key: PUID
         value: 1000
       - key: PGID
